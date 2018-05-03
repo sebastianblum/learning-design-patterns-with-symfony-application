@@ -2,6 +2,8 @@
 
 Mitschrift:
 
+SlideDeck von hhamon genauer anschauen!
+
 - UuidInterface verwenden für IDs
 - Argument Classes auch *Context nennen
 - UrlMatcherInterface, UrlGeneratorInterface vs RouterInterface extends UrlMatcherInterface, UrlGeneratorInterface
@@ -13,5 +15,6 @@ Mitschrift:
     - treat lists as custom collections (keine Arrays) - auch dedicated Listen mit Filtern erstellen (mit Lazy Loading)
     - use value objects - don't have an identity, are responsinve for validating their state, immutable, always valid, are interchangeable
         - public function equals(self $other): bool Methode prüfen
-        - https://github.com/moneyphp/money anschauen - Geld immer in Cent speichern
-    -     
+        - https://github.com/moneyphp/money anschauen oder SebastianBergmann\Money\Money - Geld immer in Cent speichern
+- AbstractFactory mit Hilfe von FactoryInterface erzeugen
+
