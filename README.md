@@ -24,5 +24,33 @@ Was ist DesignPatternBook
     - Builder sinnvoll, wenn das zu bauende Objekt viele optionale Construtor-Argumente hat, z.B: Route (Symfony)
     - Builder erstellen Immutable Objects
 - Adapter verbinden zwei unkompatible Objekte, ohne diese zu ändern. Auch gut für Backward compability und für Legacy Code. z.B. TwigEngineAdapter
-- Composite Pattern an Hand Shop Beispiel 
+- Composite Pattern an Hand Shop Beispiel
+- Decorator Pattern siehe HttpKernelInterface sowie HttpKernel und HttpCache
+    - HttpCache ändert handle Method 
+    - Mittlerweile auch im Service Container (DI) integriert 
+    - siehe Vortrag "Implementing Design Patterns with PHP" vom 2. März 2017, Beispiel coupon system
+    - Genauer anschauen
+- Flyweight interessant für Batchprozesse, sehr performant, z. B. Symfony Form Type Instanzen
+    - FormTypes intrinsic - auf keinen Fall einen State injekten: FormFactory: $this->registry->getType($type)
+    - FormRegistry ist Flyweight Factory - private $types
+    - AbstractExtension genauso Flyweight Factory
+    - Symfony FormBuilder extrinsic state
+    - Beispiel: FlightRadar, AircraftSerie is FlyWeight, Aircraft verwendet AircraftSeries, Position, Herstelldatum, Nummer
+    - FlyWeightFactory enthält static array/list
+    - eher wenig interessant für PHP
+ 
+### Behaviour pattern    
+    
+- Template Pattern: final operation() calls several steps that can be overwritten / are abstract - Hollywood Principle: dont call us, we will call you
+    - Doctrine DBAL paginate: AbstractPlatform final public function modifyLimitQuery and add abstract protected function doModifyLimitQuery
+    - Symfony Security AbstractAuthenticatorListener: final handle and uses protected attemptAuthentication
+    - HttpKernel: private handleRaw and emulates template pattern with event dispatcher(KernelEvents::Request, $event) (pseudo)
+- Visitor: Doctrine uses visitor pattern to visit a Schema object graph to validate or generate it
+    - Doctrine\DBAL\Schema\Visitor
+    - Visitor DropSchemaSqlCollector
+    - SingleDatabaseSynchronizer getDropallSchema()
+    - Visitor object is only used once, do not reuse   
+    - weiteres Beispiel: Doctrine\DBAL\Schema\Visitor\Graphviz 
+    - Beispiel im Shop
+  
 

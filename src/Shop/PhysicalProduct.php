@@ -3,6 +3,7 @@
 namespace App\Shop;
 
 
+use App\Shop\Visitor\ProductVisitor;
 use Money\Money;
 
 class PhysicalProduct
@@ -31,5 +32,10 @@ class PhysicalProduct
     public function getWeight(): Weight
     {
         return $this->weight;
+    }
+
+    public function accept(ProductVisitor $visitor)
+    {
+        $visitor->visitProduct($this);
     }
 }

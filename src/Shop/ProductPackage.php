@@ -2,6 +2,7 @@
 
 namespace App\Shop;
 
+use App\Shop\Visitor\ProductVisitor;
 use Money\Currency;
 use Money\Money;
 
@@ -10,9 +11,6 @@ use Money\Money;
 class ProductPackage extends PhysicalProduct
 {
     private $products = [];
-    private $salePrice;
-
-
 
     public function __construct(string $sku, array $products)
     {
@@ -48,5 +46,19 @@ class ProductPackage extends PhysicalProduct
         }
 
         return $weight;
+    }
+
+    public function getNumberOfProducts(): int
+    {
+        return count($this->products);
+    }
+
+    public function accept(ProductVisitor $visitor)
+    {
+        $visitor->visitPackage($this);
+
+        foreach ($this->products as $product) {
+            $product->accept($visitor);
+        }
     }
 }
