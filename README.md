@@ -54,6 +54,9 @@ Was ist DesignPatternBook
     - Beispiel im Shop
     
     
-Präsentation auf SpeakerDeck    
+Präsentation auf SpeakerDeck
+
+Häufige:
+Composite, Builder, Factory, AbstractFactory, Decorators, Adapters, Strategie, Mediator, Proxy (LazyLoading), Facade    
   
 
