@@ -52,5 +52,8 @@ Was ist DesignPatternBook
     - Visitor object is only used once, do not reuse   
     - weiteres Beispiel: Doctrine\DBAL\Schema\Visitor\Graphviz 
     - Beispiel im Shop
+    
+    
+Präsentation auf SpeakerDeck    
   
 
