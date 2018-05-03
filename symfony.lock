@@ -74,6 +74,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "moneyphp/money": {
+        "version": "v3.1.3"
+    },
     "monolog/monolog": {
         "version": "1.23.0"
     },
